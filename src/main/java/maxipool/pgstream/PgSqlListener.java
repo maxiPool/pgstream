@@ -34,7 +34,7 @@ public class PgSqlListener {
   private void getPgNotificationConsumer(PGNotification notification) {
     try {
       var myNotification = mapper.readValue(notification.getParameter(), MY_NOTIFICATION_TYPE_REF);
-      log.info("Notifications: channel name '{}' entity: '{}'", notification.getName(), myNotification);
+      log.info("Notifications: channel name '{}': {}", notification.getName(), myNotification);
     } catch (JsonProcessingException e) {
       log.error("Error converting JSON to MyNotification: {}", notification.getParameter(), e);
     }

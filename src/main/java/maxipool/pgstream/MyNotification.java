@@ -6,7 +6,8 @@ import lombok.Builder;
 
 @Builder
 public record MyNotification(@JsonProperty("action") ESqlAction action,
-                             @JsonProperty("entity") StreamMeEntity entity) {
+                             @JsonProperty("new") StreamMeEntity newEntity,
+                             @JsonProperty("old") StreamMeEntity oldEntity) {
   @JsonCreator
   public MyNotification {
     // for deserialization
